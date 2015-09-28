@@ -8,9 +8,9 @@ import Kleisli._
 
 object Twitter {
   def getTweets(name: String, apiKey: String, apiSecret: String): Future[List[Tweet]] = future {
-    val tweet1 = Tweet(UserDetails("ben"), "first tweet")
-    val tweet2 = Tweet(UserDetails("ben"), "second tweet")
-    val tweet3 = Tweet(UserDetails("ben"), "third tweet")
+    val tweet1 = Tweet(UserDetails("test"), "first tweet")
+    val tweet2 = Tweet(UserDetails("test"), "second tweet")
+    val tweet3 = Tweet(UserDetails("test"), "third tweet")
     List(tweet1, tweet2, tweet3)
   }
 
@@ -47,7 +47,7 @@ object Neil {
 object Actions { /*//{*/
   def simpleActions() = { /*//{*/
     def tweetsFuture =
-      Twitter.getTweets("ben", "key", "secret")
+      Twitter.getTweets("test", "key", "secret")
 
     def tweets = Await.result(tweetsFuture, 1.second)
     println(tweets)
@@ -70,7 +70,7 @@ object Actions { /*//{*/
       r <- Neil.generateString(tweetsAsText, context)
     } yield r
 
-    val a = Await.result(randString("ben"), 1.second)
+    val a = Await.result(randString("test"), 1.second)
     println(a)
   } /*//}*/
 
@@ -86,7 +86,7 @@ object Actions { /*//{*/
   def monadActions2() = { /*//{*/
     val config = Config("test", "secret", 2)
     val tweets = for {
-      tweet <- Twitter.getTweets("ben")(config)
+      tweet <- Twitter.getTweets("test")(config)
     } yield tweet
 
     println(tweets)
