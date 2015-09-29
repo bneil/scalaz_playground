@@ -1,4 +1,5 @@
 package org.neilconcepts
+
 import scalaz._
 import Scalaz._
 import scala.concurrent._
