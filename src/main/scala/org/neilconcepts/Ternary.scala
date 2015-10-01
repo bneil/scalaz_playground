@@ -7,7 +7,7 @@ object Ternany extends App {
 
   private def init {
     val time = measure {
-      for (i <- 1 |-> 10000) {
+      for (i <- 1 |-> 1000000) {
         val a = i % 2 == 0
         val x = a ? 1 | 0
       }
@@ -15,7 +15,7 @@ object Ternany extends App {
     println(s"Total time: $time")
 
     val time2 = measure {
-      for (i <- 1 |-> 10000) {
+      for (i <- 1 |-> 1000000) {
         val a = i % 2 == 0
         val x =
           if(a) 0

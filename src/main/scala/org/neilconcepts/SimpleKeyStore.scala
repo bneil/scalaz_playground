@@ -13,7 +13,7 @@ object SimpleKeyStore extends App {
 
   private def init {
     val time = measure {
-      for (i <- 1 |-> 10000) {
+      for (i <- 1 |-> 1000000) {
         val r = scala.util.Random.nextInt(1000)
         cache(r)
       }
@@ -21,7 +21,7 @@ object SimpleKeyStore extends App {
     println(s"Total time: $time")
 
     val time2 = measure {
-      for (i <- 1 |-> 10000) {
+      for (i <- 1 |-> 1000000) {
         val r = scala.util.Random.nextInt(1000)
         mutCache(i) = s"entry:$i"
       }
