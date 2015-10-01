@@ -6,7 +6,7 @@ import scala.concurrent.duration._
 import ExecutionContext.Implicits.global
 import Kleisli._
 
-object KeyVStore {
+object KeyVStore extends App{
   sealed trait KVS[Next]
   case class Put[Next](key: String, value: String, next: Next) extends KVS[Next]
   case class Delete[Next](key: String, next: Next) extends KVS[Next]
