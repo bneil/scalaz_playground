@@ -7,22 +7,22 @@ object Ternany extends App {
 
   private def init {
     val time = measure {
-      for (i <- 1 |-> 1000000) {
+      for (i <- 1 |-> 100000) {
         val a = i % 2 == 0
         val x = a ? 1 | 0
       }
     }
-    println(s"Total time: $time")
+    println(s"scalaz) Total time: $time")
 
+    var a = null
     val time2 = measure {
-      for (i <- 1 |-> 1000000) {
+      for (i <- 1 |-> 100000) yield {
         val a = i % 2 == 0
-        val x =
-          if(a) 0
-          else 1
+        val b = if(a) true else false
       }
     }
-    println(s"Total time: $time2")
+
+    println(s"scala) Total time: $time2")
   }
 
   init

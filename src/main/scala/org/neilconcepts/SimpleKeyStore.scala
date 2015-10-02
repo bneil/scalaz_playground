@@ -18,15 +18,15 @@ object SimpleKeyStore extends App {
         cache(r)
       }
     }
-    println(s"Total time: $time")
+    println(s"scalaz) Total time: $time")
 
     val time2 = measure {
       for (i <- 1 |-> 1000000) {
         val r = scala.util.Random.nextInt(1000)
-        mutCache(i) = s"entry:$i"
+        mutCache.getOrElseUpdate(r,s"entry:$i")
       }
     }
-    println(s"Total time: $time2")
+    println(s"scala) Total time: $time2")
   }
 
   init
